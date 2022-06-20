@@ -1,0 +1,52 @@
+{
+  "en": {
+    "translation": {
+      "header-login-btn": "Login with your wallet",
+      "header-connected-label": "Connected to {{chain}}",
+      "header-disconnect-btn": "Disconnect",
+      "home-title": "Welcome to Web3 Wallet Login!",
+      "home-description": "You need to login with your wallet to authenticate it to access the dApp.",
+      "home-description-logged-in": "You have successfully authenticated.",
+      "login-title": "Let's connect!",
+      "login-description": "Please, complete the following steps:",
+      "login-select-connector": "Choose the wallet you want to use:",
+      "login-step-1-label": "Connect Wallet",
+      "login-step-1-description": "Please, go to your wallet and allow to connect with Web3 Wallet Login dApp.",
+      "login-step-1-done-description": "Sucessfully connected to {{wallet}}, chain {{chain}}",
+      "login-step-2-label": "Authenticate Wallet",
+      "login-step-2-pre-description": "We need to verify you're the owner of the wallet signing a message.",
+      "login-step-2-description": "Please, go to your wallet and sign the message from Web3 Wallet Login dApp.",
+      "login-step-2-done-description": "Sucessfully authenticated {{account}}",
+      "login-cancel-btn": "Cancel",
+      "login-retry-btn": "Retry",
+      "login-continue-btn": "Continue",
+      "login-open-in-metamask": "If you have MetaMask installed, you can open Web3 Wallet Login to use it with the next button. If you do not have it installed, please, install it from your application store before continuing.",
+      "login-open-in-metamask-btn": "Open in MetaMask"
+    }
+  },
+  "es": {
+    "translation": {
+      "header-login-btn": "Conectar con su billetera",
+      "header-connected-label": "Conectado a {{chain}}",
+      "header-disconnect-btn": "Desconectar",
+      "home-title": "Bienvenido a Web3 Wallet Login!",
+      "home-description": "Para acceder a dApp necesita conectar con su billetera para autenticarla.",
+      "home-description-logged-in": "Se ha conectado correctamente.",
+      "login-title": "Conectemos!",
+      "login-description": "Por favor, complete los siguientes pasos:",
+      "login-select-connector": "Seleccione la billetera que desea emplear:",
+      "login-step-1-label": "Connectar billetera",
+      "login-step-1-description": "Por favor, acceda a su billetera y acepte la conexión con la aplicación Web3 Wallet Login.",
+      "login-step-1-done-description": "Conexión realizada con {{wallet}}, cadena {{chain}}",
+      "login-step-2-label": "Autentificar billetera",
+      "login-step-2-pre-description": "Necesitamos verificar que es el dueño de la billetera firmando un mensaje.",
+      "login-step-2-description": "Por favor, acceda a su billetera y firme el mensaje de la aplicación Web3 Wallet Login.",
+      "login-step-2-done-description": "Autenticado con éxito {{account}}",
+      "login-cancel-btn": "Cancelar",
+      "login-retry-btn": "Reintentar",
+      "login-continue-btn": "Continuar",
+      "login-open-in-metamask": "Si tiene MetaMask instalada, puede abrir Web3 Wallet Login para usar esa billetera con el siguiente botón. Si no la tiene instalada, puede instalarla desde su tienda de aplicaciones antes de continuar.",
+      "login-open-in-metamask-btn": "Abrir en MetaMask"
+    }
+  }
+}
