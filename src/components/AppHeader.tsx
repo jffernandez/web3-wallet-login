@@ -89,6 +89,7 @@ const AppHeader = () => {
       setShowDialog(false)
       setLoggedIn(false)
       disconnect()
+      sessionStorage.removeItem('authToken')
     }
   }
 
