@@ -1,9 +1,9 @@
-import { MantineThemeOverride, MantineProvider } from '@mantine/core'
+import { MantineThemeOverride, ColorScheme } from '@mantine/core'
 
-const customTheme: MantineThemeOverride = {
-  colorScheme: 'light',
+const customTheme = (colorScheme?: ColorScheme): MantineThemeOverride => ({
+  colorScheme,
   primaryColor: 'blue',
   defaultRadius: 'xl',
-}
+})
 
 export default customTheme

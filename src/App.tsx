@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
-import { AppShell, MantineProvider } from '@mantine/core'
+import { AppShell, MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core'
+import { useColorScheme } from '@mantine/hooks'
 import { Chain, configureChains, createClient, WagmiConfig } from 'wagmi'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
@@ -84,24 +86,35 @@ const wagmiClient = createClient({
 })
 
 const App = () => {
+  const systemColorScheme = useColorScheme()
+  const [colorScheme, setColorScheme] = useState<ColorScheme>(systemColorScheme)
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
+
+  useEffect(() => {
+    toggleColorScheme(systemColorScheme)
+  }, [systemColorScheme])
+
   return (
     <WagmiConfig client={wagmiClient}>
       <Router>
-        <MantineProvider theme={customTheme} withGlobalStyles withNormalizeCSS>
-          <AppShell
-            header={<AppHeader />}
-            fixed
-            sx={{
-              height: '100vh',
-            }}
-          >
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='*' element={<Home />} />
-            </Routes>
-          </AppShell>
-        </MantineProvider>
+        <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+          <MantineProvider theme={customTheme(colorScheme)} withGlobalStyles withNormalizeCSS>
+            <AppShell
+              header={<AppHeader />}
+              fixed
+              sx={{
+                height: '100vh',
+              }}
+            >
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='*' element={<Home />} />
+              </Routes>
+            </AppShell>
+          </MantineProvider>
+        </ColorSchemeProvider>
       </Router>
     </WagmiConfig>
   )
