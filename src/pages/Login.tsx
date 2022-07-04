@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { createStyles, Title, Text, Group, Stepper, Button } from '@mantine/core'
+import { createStyles, Title, Text, Group, Stepper, Button, Image } from '@mantine/core'
 import { useTranslation } from 'react-i18next'
 import { useConnect, useAccount, useNetwork, useSignMessage, Connector } from 'wagmi'
 import { useNavigate, useSearchParams } from 'react-router-dom'
@@ -9,6 +9,9 @@ import { getApiUrl } from '../config'
 import { composeMessage, parseAuthToken } from '../utils/auth'
 import { debugLog } from '../utils/log'
 import { isMobile } from '../utils'
+import metaMaskImg from '../assets/img/metamask.png'
+import coinbaseWalletImg from '../assets/img/coinbaseWalletIcon.svg'
+import walletConnectImg from '../assets/img/walletConnectIcon.svg'
 
 const DEBUG_LEVEL = 0 // 0: no debug, 1: only level 1 msgs, 2: up to level 2 msgs, 3: up to level 3 msgs ... and so on
 const TOKEN_EXPIRE = 1 * 60 * 60 * 1000 // 1 hour
@@ -245,6 +248,19 @@ const Login = () => {
     }
   }
 
+  const getConnectorImage = (connectorId: string) => {
+    if (connectorId === 'metaMask') {
+      return metaMaskImg
+    }
+    if (connectorId === 'coinbaseWallet') {
+      return coinbaseWalletImg
+    }
+    if (connectorId === 'walletConnect') {
+      return walletConnectImg
+    }
+    return ''
+  }
+
   // description for step 1
   let step1Description = t('login-step-1-description')
   if (currentStep > STEP_1_CONNECT) {
@@ -300,6 +316,7 @@ const Login = () => {
               }
               key={connector.id}
               sx={{ width: '100%', maxWidth: '300px' }}
+              leftIcon={getConnectorImage(connector.id) && <Image src={getConnectorImage(connector.id)} height={20} />}
               onClick={() => handleSelectConnector(connector)}
             >
               {connector.name}
